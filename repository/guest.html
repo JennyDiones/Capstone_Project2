@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BU-NEST Guest Research</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guest.css">
+</head>
+<body>
+  <header class="guest-header">
+    <button class="hamburger" id="guestMenu" type="button" aria-label="Open menu">
+      <i></i>
+      <i></i>
+      <i></i>
+    </button>
+    <a href="guest.html">BU-NEST</a>
+  </header>
+
+  <main>
+    <section class="guest-hero">
+      <h1>Welcome</h1>
+      <p>Explore research. Inspire knowledge.</p>
+      <div class="guest-search">
+        <span class="search-symbol"></span>
+        <input id="guestSearch" type="search" placeholder="Search for research title, keyword...">
+        <button id="openFilters" type="button" aria-label="Open filters">☷</button>
+      </div>
+    </section>
+
+    <section class="research-content">
+      <div class="results-heading">
+        <h2 id="resultsTitle">Recommended for You</h2>
+        <button id="openSort" type="button">☰ <span>Sort</span></button>
+      </div>
+
+      <div class="research-list" id="researchList">
+        <article
+          class="research-card"
+          data-title="Research Map of Undergraduate Theses of College of Nursing"
+          data-author="Nikka Marie L. Diaz, Antonette Switzel B. Pascual"
+          data-year="2015"
+          data-popularity="94"
+        >
+          <button class="research-summary" type="button">
+            <span class="doc-icon">▤</span>
+            <strong>Research Map of Undergraduate Theses of Bicol University College of Nursing</strong>
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="research-details">
+            <button class="contact-authors" type="button">☎ &nbsp; Contact Author</button>
+          </div>
+        </article>
+
+        <article
+          class="research-card"
+          data-title="Effects of Scheduling of Medical-Surgical Nursing on the Learning Dynamics of Nursing Students in West and East Campus"
+          data-author="Clarisse C. Banua, Onidranreb R. Bernardino, Rojhen D. Cleope"
+          data-year="2024"
+          data-popularity="88"
+        >
+          <button class="research-summary" type="button">
+            <span class="doc-icon">▤</span>
+            <strong>Effects of Scheduling of Medical-Surgical Nursing on the Learning Dynamics of Nursing Students in Bicol University West and Tabaco Campus</strong>
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="research-details">
+            <p class="authors">
+              ♙
+              <span>Authors: Clarisse C. Banua, Onidranreb R. Bernardino, Rojhen D. Cleope (2024)</span>
+            </p>
+            <h3>Abstract</h3>
+            <p>
+              This study examines the effects of scheduling Medical-Surgical Nursing courses on the learning dynamics of nursing students from the Bicol University West and Tabaco Campuses. It explores how class schedules, clinical-duty arrangements, study periods, and workload distribution influence students' academic engagement, participation, and overall learning experience.
+            </p>
+            <p>
+              The findings identify scheduling practices that support effective learning while reducing conflicts between classroom instruction and clinical exposure. The study may guide nursing administrators and faculty members in developing balanced schedules that promote student well-being, improve knowledge retention, and strengthen clinical preparedness.
+            </p>
+            <button class="contact-authors" type="button">☎ &nbsp; Contact Author</button>
+          </div>
+        </article>
+
+        <article
+          class="research-card"
+          data-title="Academic Challenges and Coping Strategies of Medical-Surgical Nursing Students During Clinical Exposure"
+          data-author="Maria D. Santos, John P. Cruz"
+          data-year="2023"
+          data-popularity="76"
+        >
+          <button class="research-summary" type="button">
+            <span class="doc-icon">▤</span>
+            <strong>Academic Challenges and Coping Strategies of Medical-Surgical Nursing Students During Clinical Exposure</strong>
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="research-details">
+            <p class="authors">
+              ♙
+              <span>Authors: Maria D. Santos, John P. Cruz (2023)</span>
+            </p>
+            <h3>Abstract</h3>
+            <p>
+              This research identifies the challenges faced by nursing students and the coping strategies they apply during clinical exposure.
+            </p>
+            <button class="contact-authors" type="button">☎ &nbsp; Contact Author</button>
+          </div>
+        </article>
+
+        <article
+          class="research-card"
+          data-title="Menopausal Awareness of West Campus Personnel and Effectiveness of EIC Materials"
+          data-author="Ana Reyes, Bea Lim"
+          data-year="2022"
+          data-popularity="82"
+        >
+          <button class="research-summary" type="button">
+            <span class="doc-icon">▤</span>
+            <strong>Menopausal Awareness of West Campus Personnel and Effectiveness of EIC Materials</strong>
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="research-details">
+            <p class="authors">
+              ♙
+              <span>Authors: Ana Reyes, Bea Lim (2022)</span>
+            </p>
+            <h3>Abstract</h3>
+            <p>
+              An assessment of awareness and the effectiveness of educational information materials among campus personnel.
+            </p>
+            <button class="contact-authors" type="button">☎ &nbsp; Contact Author</button>
+          </div>
+        </article>
+      </div>
+
+      <p class="guest-empty" id="guestEmpty">No matching research found.</p>
+    </section>
+
+    <section class="inline-contact-view" id="inlineContactView">
+      <div class="inline-contact-card">
+        <header>
+          <h2>
+            <span class="contact-people-icon">♙</span>
+            Contact Authors
+          </h2>
+          <button class="contact-back" id="closeContactView" type="button">Back</button>
+        </header>
+        <h3 id="inlineResearchTitle">Research title</h3>
+        <div class="inactive-warning" id="inactiveWarning">
+          ⚠
+          <span>
+            This author is currently inactive and may not be available for inquiries. You may reach out to the following offices for assistance.
+          </span>
+        </div>
+        <div id="helpResources">
+          <h4>Get Help &amp; Find More Information</h4>
+          <div class="resource-grid">
+            <article>
+              <span class="resource-icon">▥</span>
+              <div>
+                <b>U-LS</b>
+                <small>University Library Official Website</small>
+              </div>
+              <a href="#uls">Go to BU-LS ↗</a>
+            </article>
+            <article>
+              <span class="resource-icon">▤</span>
+              <div>
+                <b>RISA</b>
+                <small>Reference and Information Search Assistance</small>
+              </div>
+              <a href="#risa">Go to RISA ↗</a>
+            </article>
+            <article>
+              <span class="resource-icon">▦</span>
+              <div>
+                <b>OPAC</b>
+                <small>Online-Public-Access Catalog</small>
+              </div>
+              <a href="#opac">Go to OPAC ↗</a>
+            </article>
+          </div>
+        </div>
+        <h4>Registered Researchers:</h4>
+        <div class="inline-researchers" id="inlineResearchers"></div>
+        <footer>
+          <button id="generalContact" type="button">☎ &nbsp; Contact Author</button>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- Filter Modal -->
+  <div class="modal-backdrop" id="filterModal" role="dialog" aria-modal="true" aria-labelledby="filterTitle">
+    <form class="guest-modal filter-modal" id="filterForm">
+      <header>
+        <h2 id="filterTitle">☷ &nbsp; Filter by</h2>
+        <button class="modal-close" type="button">Done</button>
+      </header>
+      <div class="filter-fields">
+        <label>
+          <b>⌕ &nbsp; Keyword</b>
+          <input id="keywordFilter" type="text" placeholder="Enter keyword...">
+        </label>
+        <label>
+          <b>♙ &nbsp; Author</b>
+          <input id="authorFilter" type="text" placeholder="Enter author name...">
+        </label>
+        <label>
+          <b>▣ &nbsp; Year</b>
+          <span class="year-fields">
+            <input id="fromYear" type="number" placeholder="From Year">
+            <input id="toYear" type="number" placeholder="To Year">
+          </span>
+        </label>
+      </div>
+      <fieldset>
+        <legend>Quick sort</legend>
+        <div class="quick-sort">
+          <button type="button" data-sort="newest">Newest First</button>
+          <button type="button" data-sort="az">A-Z Title</button>
+          <button type="button" data-sort="popular">Most Popular</button>
+          <button type="button" data-sort="oldest">Oldest First</button>
+        </div>
+      </fieldset>
+      <footer>
+        <button id="clearFilters" type="button">↶ &nbsp; Clear all</button>
+        <button class="apply-filter" type="submit">☰ &nbsp; Apply filters</button>
+      </footer>
+    </form>
+  </div>
+
+  <!-- Sort Modal -->
+  <div class="modal-backdrop" id="sortModal" role="dialog" aria-modal="true" aria-labelledby="sortTitle">
+    <div class="guest-modal sort-modal">
+      <header>
+        <h2 id="sortTitle">Sort by</h2>
+        <button class="modal-close" type="button">×</button>
+      </header>
+      <div class="sort-options">
+        <button data-sort="newest">
+          ▣
+          <span>
+            <b>Newest First</b>
+            <small>Recently added Theses</small>
+          </span>
+        </button>
+        <button data-sort="popular">
+          ♨
+          <span>
+            <b>Most Popular</b>
+            <small>Most viewed Theses</small>
+          </span>
+        </button>
+        <button data-sort="az">
+          ▤
+          <span>
+            <b>A-Z Title</b>
+            <small>Alphabetical order</small>
+          </span>
+        </button>
+        <button data-sort="oldest">
+          ◷
+          <span>
+            <b>Oldest First</b>
+            <small>Oldest theses first</small>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div class="modal-backdrop" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <div class="guest-modal contact-modal">
+      <header>
+        <h2 id="contactTitle">♙ &nbsp; Contact Authors</h2>
+        <button class="modal-close" type="button">×</button>
+      </header>
+      <h3 id="contactResearchTitle"></h3>
+      <div class="help-note">
+        ⚠ &nbsp; Author availability may vary. You may contact available researchers below.
+      </div>
+      <h4>Registered Researchers:</h4>
+      <div id="researcherList"></div>
+      <footer>
+        <button class="modal-close contact-main" type="button">☎ &nbsp; Contact Author</button>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="guest.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "msedge",
+      "request": "launch",
+      "name": "Launch index",
+      "file": "C:/Users/Jenny/Downloads/repository/repository/index.html"
+    }
+  ]
+}
