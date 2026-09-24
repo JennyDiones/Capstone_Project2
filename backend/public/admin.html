@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEST Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open admin menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <aside class="sidebar" id="adminSidebar">
+    <div class="sidebar-brand">BUCN-NEST ADMIN</div>
+    <nav aria-label="Admin navigation">
+      <a class="nav-item active" href="#dashboard" data-page="Dashboard">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="2" y="2" width="9" height="7" rx="1"/>
+          <rect x="13" y="2" width="9" height="12" rx="1"/>
+          <rect x="2" y="11" width="9" height="11" rx="1"/>
+          <rect x="13" y="16" width="9" height="6" rx="1"/>
+        </svg>
+        <span>Dashboard</span>
+      </a>
+      <a class="nav-item" href="#theses" data-page="Theses">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 2h12a2 2 0 012 2v12l-5 5H5a2 2 0 01-2-2V4a2 2 0 012-2z"/>
+          <path class="cutout" d="M14 21v-4a1 1 0 011-1h4M7 7h8M7 11h8"/>
+        </svg>
+        <span>Theses</span>
+      </a>
+      <a class="nav-item" href="#users" data-page="Users">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="7" r="5"/>
+          <path d="M4 22a8 8 0 0116 0z"/>
+        </svg>
+        <span>Users</span>
+      </a>
+      <a class="nav-item" href="#notification" data-page="Notification">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 18h16l-2-3V9a6 6 0 00-12 0v6z"/>
+          <path d="M9 20a3 3 0 006 0z"/>
+        </svg>
+        <span>Notification</span>
+      </a>
+      <a class="nav-item" href="#settings" data-page="Settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd" d="M9.5 2h5l.7 2.5c.7.3 1.3.6 1.9 1.1l2.5-.7 2.5 4.3-1.8 1.8a8 8 0 010 2.1l1.8 1.8-2.5 4.3-2.5-.7c-.6.4-1.2.8-1.9 1.1l-.7 2.4h-5l-.7-2.5c-.7-.3-1.3-.6-1.9-1.1l-2.5.7-2.5-4.3L3.7 13a8 8 0 010-2.1L1.9 9.1l2.5-4.3 2.5.7c.6-.4 1.2-.8 1.9-1.1L9.5 2zM12 16a4 4 0 100-8 4 4 0 000 8z"/>
+        </svg>
+        <span>Settings</span>
+      </a>
+    </nav>
+  </aside>
+
+  <main class="admin-content">
+    <h1 class="mobile-page-title" id="pageTitle">Dashboard</h1>
+
+    <!-- Dashboard View -->
+    <div class="admin-view active" id="dashboardView">
+      <section class="stats-grid" aria-label="Dashboard statistics">
+        <article class="stat-card">
+          <div class="stat-label">Total Theses</div>
+          <div class="stat-body">
+            <div>
+              <strong>670</strong>
+              <small>+ 13 this month</small>
+            </div>
+            <span class="stat-icon">▤</span>
+          </div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-label">Pending Reviews</div>
+          <div class="stat-body">
+            <div>
+              <strong>03</strong>
+              <small>Needs Attention</small>
+            </div>
+            <span class="stat-icon clock-icon">◷</span>
+          </div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-label">Registered Users</div>
+          <div class="stat-body">
+            <div>
+              <strong>976</strong>
+              <small>+ 49 this month</small>
+            </div>
+            <span class="stat-icon">♙</span>
+          </div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-label">Active Advisers</div>
+          <div class="stat-body">
+            <div>
+              <strong>12</strong>
+              <small>8 Specializations</small>
+            </div>
+            <span class="stat-icon">♧</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="dashboard-panel approvals-panel">
+        <header class="panel-header">
+          <span class="panel-icon">◷</span>
+          <h2>Pending Approvals</h2>
+          <span class="count-badge" id="approvalCount">2</span>
+        </header>
+        <div class="approval-list" id="approvalList">
+          <article class="approval-item">
+            <span class="pending-dot"></span>
+            <div class="approval-info">
+              <strong>Physiological Impact of Progressive Stair Running</strong>
+              <span>R. Dela Rosa, S. Duterte · May 11, 2026</span>
+            </div>
+            <div class="approval-actions">
+              <button class="reject-btn" type="button">Reject</button>
+              <button class="approve-btn" type="button">Approve</button>
+            </div>
+          </article>
+          <article class="approval-item">
+            <span class="pending-dot"></span>
+            <div class="approval-info">
+              <strong>Effectiveness of Simulation-Based Learning in Nursing Education</strong>
+              <span>M. Santos · May 9, 2026</span>
+            </div>
+            <div class="approval-actions">
+              <button class="reject-btn" type="button">Reject</button>
+              <button class="approve-btn" type="button">Approve</button>
+            </div>
+          </article>
+          <p class="empty-approvals" id="emptyApprovals">No pending approvals.</p>
+        </div>
+      </section>
+
+      <section class="dashboard-panel category-panel">
+        <header class="panel-header">
+          <span class="chart-icon">▥</span>
+          <h2>Theses by Category</h2>
+        </header>
+        <div class="category-list">
+          <div class="category-row">
+            <span>Medical-Surgical</span>
+            <div class="progress"><i style="--value:67%"></i></div>
+            <b>67</b>
+          </div>
+          <div class="category-row">
+            <span>Maternal &amp; Child</span>
+            <div class="progress"><i style="--value:58%"></i></div>
+            <b>58</b>
+          </div>
+          <div class="category-row">
+            <span>Mental Health</span>
+            <div class="progress"><i style="--value:46%"></i></div>
+            <b>46</b>
+          </div>
+          <div class="category-row">
+            <span>Community Health Nursing</span>
+            <div class="progress"><i style="--value:42%"></i></div>
+            <b>42</b>
+          </div>
+          <div class="category-row">
+            <span>Health Assessment</span>
+            <div class="progress"><i style="--value:58%"></i></div>
+            <b>58</b>
+          </div>
+          <div class="category-row">
+            <span>Lifestyle</span>
+            <div class="progress"><i style="--value:39%"></i></div>
+            <b>39</b>
+          </div>
+          <div class="category-row">
+            <span>Nursing Practice</span>
+            <div class="progress"><i style="--value:44%"></i></div>
+            <b>44</b>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Theses View -->
+    <div class="admin-view" id="thesesView">
+      <div class="theses-toolbar">
+        <label class="thesis-search">
+          <span aria-hidden="true"></span>
+          <input id="thesisSearch" type="search" placeholder="Search for research title, keyword..." aria-label="Search theses">
+        </label>
+        <div class="filter-row">
+          <button class="add-thesis-btn" id="addThesis" type="button">
+            <b>+</b> Add Thesis
+          </button>
+          <select id="statusFilter" aria-label="Filter by status">
+            <option value="all">All Status</option>
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+          </select>
+          <select id="categoryFilter" aria-label="Filter by category">
+            <option value="all">All Categories</option>
+            <option>Medical-Surgical</option>
+            <option>Maternal &amp; Child</option>
+            <option>Mental Health</option>
+            <option>Community Health Nursing</option>
+          </select>
+        </div>
+      </div>
+
+      <h2 class="section-label">PENDING (<span id="thesesPendingCount">2</span>)</h2>
+      <section class="thesis-group pending-theses">
+        <header class="panel-header">
+          <span class="panel-icon">◷</span>
+          <h2>Pending Approvals</h2>
+          <span class="count-badge">2</span>
+        </header>
+        <div class="thesis-items">
+          <article class="thesis-item" data-status="pending" data-category="Medical-Surgical">
+            <span class="pending-dot"></span>
+            <div class="thesis-copy">
+              <strong>Physiological Impact of Progressive Stair Running</strong>
+              <span>R. Dela Rosa, S. Duterte · May 11, 2026</span>
+            </div>
+            <div class="thesis-actions">
+              <button class="view-btn" type="button">View</button>
+              <button class="reject-btn" type="button">Reject</button>
+              <button class="approve-btn" type="button">Approve</button>
+            </div>
+          </article>
+          <article class="thesis-item" data-status="pending" data-category="Mental Health">
+            <span class="pending-dot"></span>
+            <div class="thesis-copy">
+              <strong>Effectiveness of Simulation-Based Learning in Nursing Education</strong>
+              <span>M. Santos · May 9, 2026</span>
+            </div>
+            <div class="thesis-actions">
+              <button class="view-btn" type="button">View</button>
+              <button class="reject-btn" type="button">Reject</button>
+              <button class="approve-btn" type="button">Approve</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <h2 class="section-label approved-label">APPROVED (<span id="approvedCount">670</span>)</h2>
+      <section class="thesis-group approved-theses">
+        <header class="panel-header">
+          <h2>Approved Theses</h2>
+          <span class="count-badge">670</span>
+        </header>
+        <div class="thesis-items">
+          <article class="thesis-item approved-item" data-status="approved" data-category="Community Health Nursing">
+            <div class="thesis-copy">
+              <strong>Virtual Institutional Scholarly Theses Archive: The Centralized Digital Repository System of College of Nursing</strong>
+              <span>
+                <b>Authors:</b> Bieber, Jessa Mae J. Dimaano, Frauline F. Jacinto, Happy Gutierrez (2026)
+              </span>
+            </div>
+            <button class="view-btn" type="button">View</button>
+          </article>
+          <article class="thesis-item approved-item" data-status="approved" data-category="Medical-Surgical">
+            <div class="thesis-copy">
+              <strong>Effects of Scheduling of Medical-Surgical Nursing on the Learning Dynamics of Nursing Students in West and East Campus</strong>
+              <span>
+                <b>Authors:</b> Clarisse C. Banua, Onidranreb R. Bernardino, Rojhen D. Cleope (2024)
+              </span>
+            </div>
+            <button class="view-btn" type="button">View</button>
+          </article>
+        </div>
+      </section>
+      <p class="no-results" id="noResults">No theses found.</p>
+    </div>
+
+    <!-- Users View -->
+    <div class="admin-view" id="usersView">
+      <div class="users-toolbar">
+        <label class="thesis-search">
+          <span aria-hidden="true"></span>
+          <input id="userSearch" type="search" placeholder="Search name, ID, email..." aria-label="Search users">
+        </label>
+        <div class="user-filters">
+          <select id="roleFilter" aria-label="Filter by role">
+            <option value="all">All Roles</option>
+            <option value="student">Student</option>
+            <option value="faculty">Faculty / Adviser</option>
+            <option value="guest">Guest</option>
+          </select>
+          <select id="userStatusFilter" aria-label="Filter by status">
+            <option value="all">All Status</option>
+            <option value="active">Active</option>
+            <option value="suspended">Suspended</option>
+          </select>
+        </div>
+      </div>
+      <h2 class="users-count">USERS (<span id="visibleUserCount">976</span>)</h2>
+      <section class="user-list" id="userList">
+        <article class="user-card" data-role="student" data-status="active">
+          <div class="avatar">JB</div>
+          <div class="user-info">
+            <strong>Justine Bieber</strong>
+            <span>Student ID: 2023-1234-56789</span>
+          </div>
+          <button class="suspend-btn" type="button">Suspend</button>
+          <button class="user-view-btn" type="button">View</button>
+        </article>
+        <article class="user-card" data-role="student" data-status="active">
+          <div class="avatar">JD</div>
+          <div class="user-info">
+            <strong>Jessa Mae J. Dimaano</strong>
+            <span>Student ID: 2023-1224-56779</span>
+          </div>
+          <button class="suspend-btn" type="button">Suspend</button>
+          <button class="user-view-btn" type="button">View</button>
+        </article>
+        <article class="user-card" data-role="student" data-status="active">
+          <div class="avatar">FJ</div>
+          <div class="user-info">
+            <strong>Frauline F. Jacinto</strong>
+            <span>Student ID: 2023-1334-56339</span>
+          </div>
+          <button class="suspend-btn" type="button">Suspend</button>
+          <button class="user-view-btn" type="button">View</button>
+        </article>
+        <article class="user-card" data-role="student" data-status="active">
+          <div class="avatar">HG</div>
+          <div class="user-info">
+            <strong>Happy D. Gutierrez</strong>
+            <span>Student ID: 2023-1404-56449</span>
+          </div>
+          <button class="suspend-btn" type="button">Suspend</button>
+          <button class="user-view-btn" type="button">View</button>
+        </article>
+        <article class="user-card faculty-card" data-role="faculty" data-status="active">
+          <div class="avatar">JI</div>
+          <div class="user-info">
+            <strong>Jean Annette S. Ibo, RN, MAN, EdD</strong>
+            <span>Faculty, Adviser</span>
+          </div>
+          <button class="suspend-btn" type="button">Suspend</button>
+          <button class="user-view-btn" type="button">View</button>
+        </article>
+        <article class="user-card guest-card" data-role="guest" data-status="active">
+          <div class="avatar">GU</div>
+          <div class="user-info">
+            <strong>Guest User #0001</strong>
+            <span>Guest, No Account</span>
+          </div>
+          <button class="suspend-btn" type="button">Suspend</button>
+          <button class="user-view-btn" type="button">View</button>
+        </article>
+        <article class="user-card guest-card" data-role="guest" data-status="active">
+          <div class="avatar">GU</div>
+          <div class="user-info">
+            <strong>Guest User #0002</strong>
+            <span>Guest, No Account</span>
+          </div>
+          <button class="suspend-btn" type="button">Suspend</button>
+          <button class="user-view-btn" type="button">View</button>
+        </article>
+      </section>
+      <p class="no-results" id="noUsers">No users found.</p>
+    </div>
+
+    <!-- Notification View -->
+    <div class="admin-view" id="notificationView">
+      <div class="notification-heading">
+        <h1>Notification</h1>
+        <button id="markAllRead" type="button">Mark All Read</button>
+      </div>
+      <form class="notification-form" id="notificationForm">
+        <header>
+          <span class="send-plane">➤</span>
+          <h2>Send Notification</h2>
+        </header>
+        <div class="notification-fields">
+          <label>
+            RECIPIENT
+            <select id="notificationRecipient">
+              <option>All users</option>
+              <option>Students</option>
+              <option>Faculty / Advisers</option>
+              <option>Guests</option>
+            </select>
+          </label>
+          <label>
+            TITLE
+            <input id="notificationTitle" type="text" placeholder="Notification title..." required>
+          </label>
+          <label>
+            MESSAGE
+            <textarea id="notificationMessage" placeholder="Type message..." required></textarea>
+          </label>
+          <button class="send-notification-btn" type="submit">Send Notification</button>
+        </div>
+      </form>
+
+      <section class="notification-feed">
+        <h2>TODAY</h2>
+        <div id="todayNotifications">
+          <article class="notification-card unread">
+            <span class="unread-dot"></span>
+            <strong>New thesis submission pending review</strong>
+            <p class="notification-subject">Virtual Institutional Scholarly Theses Archive: The Centralized Digital Repository System of College of Nursing</p>
+            <p>
+              <b>Authors:</b> Bieber, Jessa Mae J. Dimaano, Frauline F. Jacinto, Happy Gutierrez (2026)
+            </p>
+            <footer>
+              <span>May 18, 2026</span>
+              <span>1:43 PM</span>
+            </footer>
+          </article>
+        </div>
+        <h2>EARLIER</h2>
+        <div id="earlierNotifications">
+          <article class="notification-card unread">
+            <span class="unread-dot"></span>
+            <strong>New thesis submission pending review</strong>
+            <p class="notification-subject">Effectiveness of Simulation-Based Learning in Nursing Education</p>
+            <p>
+              <b>Author:</b> M. Santos
+            </p>
+            <footer>
+              <span>May 9, 2026</span>
+              <span>10:20 AM</span>
+            </footer>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

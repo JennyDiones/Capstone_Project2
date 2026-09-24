@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUCN - NEST | Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('style.css') }}">
+</head>
+<body>
+  <main class="login-page">
+    <section class="hero" aria-labelledby="site-title">
+      <div class="blob blob-one"></div>
+      <div class="blob blob-two"></div>
+      <div class="dot-grid" aria-hidden="true"></div>
+
+      <svg class="branch" viewBox="0 0 360 330" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round">
+          <path d="M344 329C294 265 264 177 211 98"/>
+          <path d="M281 236c-46-8-78-30-106-62M244 159c13-40 17-70 8-105M315 285c-3-49 8-84 25-116M211 99c-37-1-63-15-82-39"/>
+        </g>
+        <g fill="currentColor">
+          <ellipse cx="179" cy="166" rx="26" ry="55" transform="rotate(-57 179 166)"/>
+          <ellipse cx="226" cy="122" rx="22" ry="51" transform="rotate(18 226 122)"/>
+          <ellipse cx="254" cy="67" rx="17" ry="45" transform="rotate(3 254 67)"/>
+          <ellipse cx="306" cy="229" rx="22" ry="55" transform="rotate(22 306 229)"/>
+          <ellipse cx="343" cy="163" rx="20" ry="51" transform="rotate(14 343 163)"/>
+          <ellipse cx="133" cy="55" rx="18" ry="47" transform="rotate(-68 133 55)"/>
+        </g>
+      </svg>
+
+      <div class="brand">
+        <div class="crest">
+          <img src="{{ asset('logo.png') }}" alt="BUCN-NEST Logo" class="logo-img">
+        </div>
+        <h1 id="site-title">BUCN-NEST</h1>
+        <p>Nursing Education Scholarly Theses Archive</p>
+      </div>
+    </section>
+
+    <section class="auth-section" aria-labelledby="login-heading">
+      <form class="login-form" id="loginForm" method="POST" action="{{ route('login') }}">
+        @csrf
+        <h2 id="login-heading">Sign in to continue</h2>
+
+        @if ($errors->any())
+          <div class="error" style="color: #d9534f; margin-bottom: 10px;">
+            @foreach ($errors->all() as $error)
+              <p>{{ $error }}</p>
+            @endforeach
+          </div>
+        @endif
+
+        <div class="field">
+          <label class="sr-only" for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Email"
+            autocomplete="email"
+            value="{{ old('email') }}"
+            required
+          >
+          <span class="error" id="emailError"></span>
+        </div>
+
+        <div class="field">
+          <label class="sr-only" for="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Password"
+            autocomplete="current-password"
+            required
+            minlength="6"
+          >
+          <button
+            class="eye-button"
+            id="togglePassword"
+            type="button"
+            aria-label="Show password"
+            aria-pressed="false"
+          >
+            <svg class="eye-open" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            <svg class="eye-closed" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 3l18 18M10.6 6.1A10 10 0 0112 6c6.5 0 10 6 10 6a17 17 0 01-2.2 3M6.2 6.2C3.5 8 2 12 2 12s3.5 6 10 6a10 10 0 004.1-.8M9.9 9.9a3 3 0 004.2 4.2"/>
+            </svg>
+          </button>
+          <span class="error" id="passwordError"></span>
+        </div>
+
+        <button class="primary-button" type="submit">Login</button>
+
+        <p class="status" id="statusMessage" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="{{ asset('script.js') }}"></script>
+</body>
+</html>
